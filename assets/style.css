@@ -1,0 +1,148 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+button,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: black;
+    color: goldenrod;
+    text-align: center;
+}
+
+main {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: goldenrod;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 30px;
+}
+
+.welcometext {
+display: flex;
+justify-content: center;
+text-align: center;
+margin: 0 100px;
+padding-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+.inputcontainer {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
+    margin: 20px;
+    align-items: center;
+}
+
+#useLocationBtn {
+color: white;
+background-color: black;
+padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 60px;
+    width: 400px;
+}
+
+.or {
+    align-self: center;
+}
+
+
+#addressInput {
+    width: 400px;
+    height: 60px;
+    position: relative;
+    top: 4px;
+}
+/* section {
+    margin-bottom: 20px;
+} */
+
+#useLocationBtn:hover {
+    background-color: gray;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Add the following styles to create a circular map area */
+.map-container {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    background-color: #333;
+}
+
+/* assets/style.css */
+
+.map-area {
+    width: 400px; /* Adjust the size of your circular area */
+    height: 400px; /* Adjust the size of your circular area */
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    left: 350px;
+    top: 100px;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.logo {
+    height: 200px;
+}
+
+#generateResult {
+height: 100px;
+width: 100px;
+border-radius: 20%;
+margin-top: 20px;
+background-color: black;
+color: white;
+border: 5px;
+border-color: green;
+border-style: solid;
+}

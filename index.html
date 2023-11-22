@@ -4,43 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <style src="/assets/style.css"></style>
+    <title>Forager</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Your Website Name</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <img src="./assets/images/forager logo.jpeg" alt="Forager logo" class="logo"> 
     </header>
 
     <main>
-        <section id="home">
-            <h2>Welcome to Our Website!</h2>
-            <p>This is the home section of our website. Feel free to explore.</p>
+        <h2 class="welcome">Welcome to Our Website!</h2>
+        <p class="welcometext">Introducing Forager, an innovative web application designed to alleviate the burden of decision-making when it comes to choosing a dining destination. Our platform leverages advanced algorithms and the power of location-based services to provide users with a tailored dining experience.</p>
+
+        <section class="inputcontainer">
+            <button id="useLocationBtn">Use current location</button>
+            <h3 class="or">Or</h3>
+            <input id="addressInput" type="text" placeholder="Enter address">
         </section>
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Learn more about our mission and values.</p>
-        </section>
+        <div class="map-container">
+            <div class="map-area" id="mapArea">
+                <div id="map"></div>
+            </div>
+        </div>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us via email or phone.</p>
-        </section>
+        <div>
+            <button id="generateResult">Generate your dining destination</button>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
-        <script src="/assets/script.js"></script>
+        <p>&copy; 2023 Forager. All rights reserved.</p>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4UNLlxYkid-u5jnVbJhZWJcH0P0yRIfI&callback=initMap" defer></script>
+        <script src="./assets/script.js"></script>
     </footer>
 
 </body>
