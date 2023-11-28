@@ -1,27 +1,63 @@
+// Global variable to store the circle overlay
+var circle;
+
 // Function to initialize the Google Map
 function initMap() {
-  // Set the center and zoom level for the map
-  var mapOptions = {
-    center: { lat: 37.7749, lng: -122.4194 }, // Example: San Francisco, CA
-    zoom: 13,
-  };
+    // Set the center and zoom level for the map
+    var mapOptions = {
+        center: { lat:  40.377937, lng: -111.803055 }, // Example: San Francisco, CA
+        zoom: 13,
+    };
 
-  // Create a new map instance
-  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    // Create a new map instance
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  // Set a marker at the center of the map (you can customize this)
-  var marker = new google.maps.Marker({
-    position: { lat: 37.7749, lng: -122.4194 },
-    map: map,
-    title: "Marker Title",
-  });
+    // Set a marker at the center of the map (you can customize this)
+    var marker = new google.maps.Marker({
+        position: { lat: 40.377937, lng: -111.803055 },
+        map: map,
+        title: "Marker Title",
+    });
+
+    // Create a circle overlay with initial radius (in meters)
+    circle = new google.maps.Circle({
+        map: map,
+        radius: 5000, // Initial radius (adjust as needed)
+        fillColor: "#4285F4", // Circle color
+        fillOpacity: 0.2, // Circle opacity
+        strokeColor: "#4285F4", // Circle border color
+        strokeOpacity: 0.8, // Circle border opacity
+        strokeWeight: 2, // Circle border weight
+    });
+
+    // Set the circle's center to the marker's position
+    circle.bindTo("center", marker, "position");
+
+    // Call the function to update the circle when the slider changes
+    document.getElementById("radiusSlider").addEventListener("input", updateCircle);
+}
+
+// Function to update the circle radius based on the slider value
+function updateCircle() {
+    // Get the slider value
+    var sliderValue = document.getElementById("radiusSlider").value;
+
+    // Update the circle radius (convert miles to meters)
+    circle.setRadius(sliderValue * 1609.34);
+
+    // Update the display text
+    document.getElementById("radiusDisplay").innerText = sliderValue + " miles";
 }
 
 // Function to be called when the document is ready
 document.addEventListener("DOMContentLoaded", function () {
-  // Call the initMap function when the document is ready
-  initMap();
+    // Call the initMap function when the document is ready
+    initMap();
 });
+
+
+
+
 
 
 // function search() {
