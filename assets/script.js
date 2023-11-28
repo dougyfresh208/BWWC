@@ -116,3 +116,45 @@ document.addEventListener("DOMContentLoaded", function () {
 //     console.log('Past Results:', pastResults);
 //   }
 //   // You can add more functions as needed and integrate with mapping APIs for a real application
+document.getElementById('useLocationBtn').addEventListener('click', getLocation);
+
+function getLocation() {
+  const apiKey = 'AIzaSyBo_mdO9-w5vxlVtKqgJY3-D--jfXBGYqY';
+  const apiUrl = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
+  const wifiAccessPoints = [
+    {
+      macAddress: '01:23:45:67:89:AB',
+      signalStrength: -65,
+      signalToNoiseRatio: 40
+    },
+    {
+      macAddress: '01:23:45:67:89:CD',
+      signalStrength: -75,
+      signalToNoiseRatio: 30
+    }
+  ];
+
+  const requestBody = {
+    considerIp: true,
+    wifiAccessPoints: wifiAccessPoints
+  };
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestBody),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response data here
+      console.log('Location:', data.location);
+      alert(`Latitude: ${data.location.lat}, Longitude: ${data.location.lng}`);
+    })
+    .catch(error => {
+      // Handle errors
+      console.error('Error:', error);
+      alert('Error getting location. Please check the console for details.');
+    });
+}
