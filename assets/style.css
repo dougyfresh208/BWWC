@@ -100,7 +100,6 @@ input {
     position: relative;
     height: 600px;
     width: 100%;
-    background-color: #333;
 }
 
 /* assets/style.css */
@@ -116,13 +115,10 @@ input {
   }
   
   #map {
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
-    justify-self: center;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
+    margin: auto;
   }
   
 
@@ -139,12 +135,17 @@ footer {
 
 #generateResult {
 height: 100px;
-width: 100px;
+width: 500px;
 border-radius: 20%;
 margin-top: 20px;
+margin-left: 38%;
 background-color: black;
 color: white;
 border: 5px;
 border-color: green;
 border-style: solid;
+}
+
+#generateResult:hover{
+    background-color: gray;
 }
