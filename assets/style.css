@@ -151,12 +151,12 @@ border-style: solid;
     background-color: gray;
 }
 
-.filter-container {
+/* .filter-container {
     margin-top: 20px;
 }
 .food-filter {
     margin-right: 10px;
-}
+} */
 /* Apply a little styling to the selected food types */
 .food-filter:checked + label {
     font-weight: bold;

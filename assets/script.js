@@ -51,38 +51,38 @@ function updateCircle() {
     // Update the display text
     document.getElementById("radiusDisplay").innerText = sliderValue + " miles";
 }
-// Function to handle the Generate button click
-function generateResult() {
-    // Get selected food types
-    const selectedFoodTypes = Array.from(document.querySelectorAll(".food-filter"))
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
+// // Function to handle the Generate button click
+// function generateResult() {
+//     // Get selected food types
+//     const selectedFoodTypes = Array.from(document.querySelectorAll(".food-filter"))
+//         .filter(checkbox => checkbox.checked)
+//         .map(checkbox => checkbox.value);
 
-    // Get other criteria (e.g., distance, price, rating) if needed
-    // const distance = document.getElementById('distance').value;
-    // const price = document.getElementById('price').value;
-    // const rating = document.getElementById('rating').value;
+//     // Get other criteria (e.g., distance, price, rating) if needed
+//     // const distance = document.getElementById('distance').value;
+//     // const price = document.getElementById('price').value;
+//     // const rating = document.getElementById('rating').value;
 
-    // Log selected food types (you can modify this based on your application logic)
-    console.log('Selected Food Types:', selectedFoodTypes);
+//     // Log selected food types (you can modify this based on your application logic)
+//     console.log('Selected Food Types:', selectedFoodTypes);
 
-    // You can now use the selectedFoodTypes and other criteria to filter your dining destinations
-    // Implement your logic to fetch or filter restaurants based on user preferences
-    // ...
+//     // You can now use the selectedFoodTypes and other criteria to filter your dining destinations
+//     // Implement your logic to fetch or filter restaurants based on user preferences
+//     // ...
 
-    // For simplicity, let's call a placeholder function to select a random restaurant
-    selectRandomRestaurant();
-}
+//     // For simplicity, let's call a placeholder function to select a random restaurant
+//     selectRandomRestaurant();
+// }
 
-// Function to select a random restaurant (placeholder)
-function selectRandomRestaurant() {
-    // ... (existing code)
-}
+// // Function to select a random restaurant (placeholder)
+// function selectRandomRestaurant() {
+//     // ... (existing code)
+// }
 
-// Function to save the result to local storage
-function saveResultToLocalStorage(restaurant) {
-    // ... (existing code)
-}
+// // Function to save the result to local storage
+// function saveResultToLocalStorage(restaurant) {
+//     // ... (existing code)
+// }
 // Function to be called when the document is ready
 document.addEventListener("DOMContentLoaded", function () {
     // Call the initMap function when the document is ready
