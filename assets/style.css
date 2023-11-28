@@ -134,12 +134,17 @@ footer {
     height: 200px;
 }
 
+.genresultbtn {
+    display: flex;
+    justify-content: center;
+}
+
 #generateResult {
 height: 100px;
 width: 500px;
 border-radius: 20%;
-margin-top: 20px;
-margin-left: 38%;
+/* margin-top: 20px;
+margin-left: 38%; */
 background-color: black;
 color: white;
 border: 5px;

@@ -6,7 +6,7 @@ function initMap() {
     // Set the center and zoom level for the map
     var mapOptions = {
         center: { lat:  40.377937, lng: -111.803055 }, // Example: San Francisco, CA
-        zoom: 13,
+        zoom: 11,
     };
 
     // Create a new map instance
