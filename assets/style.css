@@ -121,6 +121,25 @@ input {
     display: flex;
     margin: auto;
   }
+
+  .slider-container {
+    margin-left: 90%;
+    height: 200px;
+    width: 200px;
+    margin-top: -340px;
+  }
+
+  .slider:hover {
+    opacity: 1;
+    color: #333
+  }
+
+
+  .slider {
+    transform: rotate(270deg);
+  }
+
+  
   
 
 footer {
@@ -133,9 +152,11 @@ footer {
 .logo {
     height: 200px;
 }
+
 .button-container {
     text-align: center;
     margin-top: 20px;
+
 }
 
 .button {
@@ -164,7 +185,7 @@ footer {
     margin-right: 10px;
 } */
 /* Apply a little styling to the selected food types */
-.food-filter:checked + label {
+/* .food-filter:checked + label {
     font-weight: bold;
-    color: #00ff11; /* Change the color as needed */
-}
+    color: #00ff11; Change the color as needed
+} */
