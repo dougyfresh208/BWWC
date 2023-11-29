@@ -1,58 +1,77 @@
-// Global variables to store the circle overlay and map
-var circle, map;
+var circle, map, placesService;
 
-// Function to initialize the Google Map
 function initMap() {
-    // Set the center and zoom level for the map
+
     var mapOptions = {
-        center: { lat: 40.377937, lng: -111.803055 }, // Example: San Francisco, CA
+        center: { lat: 40.377937, lng: -111.803055 },
         zoom: 11,
     };
 
-    // Create a new map instance
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    // Set a marker at the center of the map
     var marker = new google.maps.Marker({
         position: { lat: 40.377937, lng: -111.803055 },
         map: map,
         title: "Marker Title",
     });
 
-    // Create a circle overlay with initial radius (in meters)
     circle = new google.maps.Circle({
         map: map,
-        radius: 5000, // Initial radius (adjust as needed)
-        fillColor: "#4285F4", // Circle color
-        fillOpacity: 0.2, // Circle opacity
-        strokeColor: "#4285F4", // Circle border color
-        strokeOpacity: 0.8, // Circle border opacity
-        strokeWeight: 2, // Circle border weight
+        radius: 5000, 
+        fillColor: "#4285F4",
+        fillOpacity: 0.2,
+        strokeColor: "#4285F4",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
     });
 
-    // Set the circle's center to the marker's position
     circle.bindTo("center", marker, "position");
 
-    // Call the function to update the circle when the slider changes
+    placesService = new google.maps.places.PlacesService(map);
+
     document.getElementById("radiusSlider").addEventListener("input", updateCircle);
 
-    // Call the function to handle the "Generate" button click
     document.getElementById("generateResult").addEventListener("click", generateResult);
 }
 
-// Function to update the circle radius based on the slider value
+function generateResult() {
+
+  var circleCenter = circle.getCenter();
+
+  var request = {
+      location: circleCenter,
+      radius: circle.getRadius(),
+      type: 'restaurant',
+      key: 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY',
+  };
+
+  placesService.nearbySearch(request, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+          console.log('Number of Restaurants within the Circle:', results.length);
+
+          var randomIndex = Math.floor(Math.random() * results.length);
+          var selectedPlace = results[randomIndex];
+
+          console.log('Selected Place:', selectedPlace);
+
+          alert(`Selected Restaurant: ${selectedPlace.name}`);
+      } else {
+          console.error('Nearby Search failed. Status:', status);
+          alert('Failed to retrieve nearby restaurants. Please check the console for details.');
+      }
+  });
+}
+
 function updateCircle() {
-    // Get the slider value
+
     var sliderValue = document.getElementById("radiusSlider").value;
 
-    // Update the circle radius (convert miles to meters)
     circle.setRadius(sliderValue * 1609.34);
 
-    // Update the display text
     document.getElementById("radiusDisplay").innerText = sliderValue + " miles";
 }
 
-// Function to handle the "Use current location" button click
 document.getElementById('useLocationBtn').addEventListener('click', getLocation);
 
 function getLocation() {
@@ -85,14 +104,12 @@ function getLocation() {
     })
         .then(response => response.json())
         .then(data => {
-            // Handle the response data here
+
             console.log('Location:', data.location);
 
-            // Update the map center and circle center
             map.setCenter(data.location);
             circle.setCenter(data.location);
 
-            // Add a marker for the current location
             var currentLocationMarker = new google.maps.Marker({
                 position: data.location,
                 map: map,
@@ -100,18 +117,15 @@ function getLocation() {
                 animation: google.maps.Animation.DROP,
             });
 
-            // Pan the map to the new marker
             map.panTo(data.location);
         })
         .catch(error => {
-            // Handle errors
             console.error('Error:', error);
             alert('Error getting location. Please check the console for details.');
         });
 }
 
-// Function to be called when the document is ready
 document.addEventListener("DOMContentLoaded", function () {
-    // Call the initMap function when the document is ready
     initMap();
 });
+
