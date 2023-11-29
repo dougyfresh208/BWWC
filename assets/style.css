@@ -18,14 +18,14 @@ body {
 
 header {
     background-color: black;
-    color: goldenrod;
+    color: rgb(196, 158, 105);
     text-align: center;
 }
 
 main {
     margin: 0 auto;
     padding: 20px;
-    background-color: goldenrod;
+    background-color: rgb(196, 158, 105);
 }
 
 .welcome {
@@ -42,11 +42,11 @@ padding-bottom: 20px;
 }
 
 h2 {
-    color: #333;
+    color: #000000;
 }
 
 p {
-    color: #555;
+    color: #000000;
 }
 
 .inputcontainer {
@@ -100,6 +100,7 @@ input {
     position: relative;
     height: 600px;
     width: 100%;
+    margin-top: 20px;
 }
 
 /* assets/style.css */
@@ -152,12 +153,20 @@ footer {
     height: 200px;
 }
 
+.genresultbtn {
+    display: flex;
+    justify-content: center;
+}
+
 #generateResult {
 height: 100px;
 width: 500px;
 border-radius: 20%;
+
 margin-top: 20px;
 margin-left: 37%;
+
+
 background-color: black;
 color: white;
 border: 5px;
@@ -167,4 +176,16 @@ border-style: solid;
 
 #generateResult:hover{
     background-color: gray;
+}
+
+/* .filter-container {
+    margin-top: 20px;
+}
+.food-filter {
+    margin-right: 10px;
+} */
+/* Apply a little styling to the selected food types */
+.food-filter:checked + label {
+    font-weight: bold;
+    color: #00ff11; /* Change the color as needed */
 }

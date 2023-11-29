@@ -6,7 +6,7 @@ function initMap() {
     // Set the center and zoom level for the map
     var mapOptions = {
         center: { lat:  40.377937, lng: -111.803055 }, // Example: San Francisco, CA
-        zoom: 13,
+        zoom: 11,
     };
 
     // Create a new map instance
@@ -35,6 +35,9 @@ function initMap() {
 
     // Call the function to update the circle when the slider changes
     document.getElementById("radiusSlider").addEventListener("input", updateCircle);
+
+    // Call the function to handle the Generate button click
+    document.getElementById("generateResult").addEventListener("click", generateResult);
 }
 
 // Function to update the circle radius based on the slider value
@@ -48,7 +51,38 @@ function updateCircle() {
     // Update the display text
     document.getElementById("radiusDisplay").innerText = sliderValue + " miles";
 }
+// // Function to handle the Generate button click
+// function generateResult() {
+//     // Get selected food types
+//     const selectedFoodTypes = Array.from(document.querySelectorAll(".food-filter"))
+//         .filter(checkbox => checkbox.checked)
+//         .map(checkbox => checkbox.value);
 
+//     // Get other criteria (e.g., distance, price, rating) if needed
+//     // const distance = document.getElementById('distance').value;
+//     // const price = document.getElementById('price').value;
+//     // const rating = document.getElementById('rating').value;
+
+//     // Log selected food types (you can modify this based on your application logic)
+//     console.log('Selected Food Types:', selectedFoodTypes);
+
+//     // You can now use the selectedFoodTypes and other criteria to filter your dining destinations
+//     // Implement your logic to fetch or filter restaurants based on user preferences
+//     // ...
+
+//     // For simplicity, let's call a placeholder function to select a random restaurant
+//     selectRandomRestaurant();
+// }
+
+// // Function to select a random restaurant (placeholder)
+// function selectRandomRestaurant() {
+//     // ... (existing code)
+// }
+
+// // Function to save the result to local storage
+// function saveResultToLocalStorage(restaurant) {
+//     // ... (existing code)
+// }
 // Function to be called when the document is ready
 document.addEventListener("DOMContentLoaded", function () {
     // Call the initMap function when the document is ready
@@ -116,3 +150,45 @@ document.addEventListener("DOMContentLoaded", function () {
 //     console.log('Past Results:', pastResults);
 //   }
 //   // You can add more functions as needed and integrate with mapping APIs for a real application
+document.getElementById('useLocationBtn').addEventListener('click', getLocation);
+
+function getLocation() {
+  const apiKey = 'AIzaSyBo_mdO9-w5vxlVtKqgJY3-D--jfXBGYqY';
+  const apiUrl = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
+  const wifiAccessPoints = [
+    {
+      macAddress: '01:23:45:67:89:AB',
+      signalStrength: -65,
+      signalToNoiseRatio: 40
+    },
+    {
+      macAddress: '01:23:45:67:89:CD',
+      signalStrength: -75,
+      signalToNoiseRatio: 30
+    }
+  ];
+
+  const requestBody = {
+    considerIp: true,
+    wifiAccessPoints: wifiAccessPoints
+  };
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestBody),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response data here
+      console.log('Location:', data.location);
+      alert(`Latitude: ${data.location.lat}, Longitude: ${data.location.lng}`);
+    })
+    .catch(error => {
+      // Handle errors
+      console.error('Error:', error);
+      alert('Error getting location. Please check the console for details.');
+    });
+}
