@@ -190,3 +190,51 @@ footer {
     font-weight: bold;
     color: #00ff11; Change the color as needed
 } */
+.btn {
+    background-color: black;
+    color: rgb(196, 158, 105);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+    border-radius: 0 !important;
+    border: none;
+    transition:all 0.3s ease 0s;
+}
+.btn:hover,
+.btn.active:hover{
+    color: white;
+}
+
+.btn:before{
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    background-color: #2E0014;
+    width: 30%;
+    height: 4px;
+    transition:all 0.3s ease 0s;
+}
+.btn:after{
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    right: 0;
+    background-color: #2E0014;
+    width: 30%;
+    height: 4px;
+    transition:all 0.3s ease 0s;
+}
+.btn:hover:before,
+.btn:hover:after,
+.btn.active:before,
+.btn.active:after{
+    width: 100%;
+}
+
+@media screen and (max-width: 575px){
+    .btn{
+        margin-bottom: 50px !important;
+    }
+}
