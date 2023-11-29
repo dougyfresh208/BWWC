@@ -155,18 +155,14 @@ footer {
 
 .genresultbtn {
     display: flex;
-    justify-content: center;
 }
 
 #generateResult {
 height: 100px;
 width: 500px;
 border-radius: 20%;
-
+margin: auto;
 margin-top: 20px;
-margin-left: 37%;
-
-
 background-color: black;
 color: white;
 border: 5px;
@@ -185,7 +181,7 @@ border-style: solid;
     margin-right: 10px;
 } */
 /* Apply a little styling to the selected food types */
-.food-filter:checked + label {
+/* .food-filter:checked + label {
     font-weight: bold;
-    color: #00ff11; /* Change the color as needed */
-}
+    color: #00ff11; Change the color as needed
+} */
