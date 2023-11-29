@@ -120,6 +120,25 @@ input {
     display: flex;
     margin: auto;
   }
+
+  .slider-container {
+    margin-left: 90%;
+    height: 200px;
+    width: 200px;
+    margin-top: -340px;
+  }
+
+  .slider:hover {
+    opacity: 1;
+    color: #333
+  }
+
+
+  .slider {
+    transform: rotate(270deg);
+  }
+
+  
   
 
 footer {
@@ -138,7 +157,7 @@ height: 100px;
 width: 500px;
 border-radius: 20%;
 margin-top: 20px;
-margin-left: 38%;
+margin-left: 37%;
 background-color: black;
 color: white;
 border: 5px;
