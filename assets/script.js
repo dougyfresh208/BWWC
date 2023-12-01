@@ -34,6 +34,14 @@ function initMap() {
     document.getElementById("generateResult").addEventListener("click", generateResult);
 }
 
+function updateResultContainer(place) {
+  // Update the corresponding lines in the result container
+  document.getElementById('restaurantName').innerText = 'Restaurant: ' + place.name;
+  document.getElementById('restaurantAddress').innerText = 'Address: ' + place.vicinity;
+  document.getElementById('priceLevel').innerText = 'Price Level: ' + (place.price_level ? place.price_level : 'N/A');
+  document.getElementById('rating').innerText = 'Rating: ' + (place.rating ? place.rating : 'N/A');
+}
+
 function generateResult() {
 
   var circleCenter = circle.getCenter();
@@ -55,7 +63,9 @@ function generateResult() {
 
           console.log('Selected Place:', selectedPlace);
 
-          alert(`Selected Restaurant: ${selectedPlace.name}`);
+          updateResultContainer(selectedPlace);
+
+          console.log(`Selected Restaurant: ${selectedPlace.name}`);
       } else {
           console.error('Nearby Search failed. Status:', status);
           alert('Failed to retrieve nearby restaurants. Please check the console for details.');
