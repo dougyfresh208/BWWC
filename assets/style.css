@@ -34,11 +34,11 @@ main {
 }
 
 .welcometext {
-display: flex;
-justify-content: center;
-text-align: center;
-margin: 0 100px;
-padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 100px;
+    padding-bottom: 20px;
 }
 
 h2 {
@@ -51,38 +51,44 @@ p {
 
 .inputcontainer {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding-bottom: 30px;
     margin: 20px;
-    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+#useLocationBtn,
+#addressInput {
+    height: 60px;
+    box-sizing: border-box;
+
 }
 
 #useLocationBtn {
-color: rgb(196, 158, 105);
-background-color: black;
-padding: 10px 20px;
+    color: rgb(196, 158, 105);
+    background-color: black;
+    padding: 10px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    height: 60px;
-    width: 400px;
+    width: 100%;
 
 }
 
 .or {
-
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    color: black;
 }
 
-
-#addressInput {
-    width: 400px;
-    height: 60px;
-    position: relative;
-    top: 4px;
+#autocomplete {
+    padding: 10px;
+    flex: 1;
+    margin-left: 10px;
 }
-/* section {
-    margin-bottom: 20px;
-} */
 
 #useLocationBtn:hover {
     background-color: gray;
@@ -96,57 +102,50 @@ input {
     box-sizing: border-box;
 }
 
-/* Add the following styles to create a circular map area */
 .map-container {
     height: 600px;
     width: 100%;
     margin-top: 20px;
 }
 
-/* assets/style.css */
-
 .map-area {
-    width: 100%; /* Adjust the size of your circular area */
-    height: 600px; /* Adjust the size of your circular area */
-    /* border-radius: 50%; */
+    width: 100%;
+    height: 600px;
     overflow: hidden;
-    /* position: relative; */
-    /* left: 350px;
-    top: 100px; */
-  }
-  
-  #map {
+}
+
+#map {
     width: 70%;
     height: 100%;
     display: flex;
     margin: auto;
-  }
+}
 
-  .slider-container {
+.slider-container {
     margin-left: 90%;
     height: 200px;
     width: 200px;
     margin-top: -340px;
-  }
+}
 
-  .slider:hover {
+.slider:hover {
     opacity: 1;
     color: #333
-  }
+}
 
-
-  .slider {
+.slider {
     transform: rotate(270deg);
-  }
+}
 
-  
-  
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: black;
     text-align: center;
     padding: 1em;
+}
+
+.footer {
+    color: rgb(196, 158, 105);
 }
 
 .logo {
@@ -168,16 +167,18 @@ footer {
     border-radius: 5px;
     box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
     cursor: pointer;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
+    /* Remove underline */
     -webkit-transition: all ease-in-out 300ms;
     transition: all ease-in-out 300ms;
-  }
-  .button:hover {
+}
+
+.button:hover {
     box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
     -webkit-transform: translate(0px, -10px) scale(1.2);
-            transform: translate(0px, -10px) scale(1.2);
-  }
-  
+    transform: translate(0px, -10px) scale(1.2);
+}
+
 /* .filter-container {
     margin-top: 20px;
 }
@@ -198,14 +199,15 @@ footer {
     position: relative;
     border-radius: 0 !important;
     border: none;
-    transition:all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
+
 .btn:hover,
-.btn.active:hover{
+.btn.active:hover {
     color: white;
 }
 
-.btn:before{
+.btn:before {
     content: "";
     position: absolute;
     top: -7px;
@@ -213,9 +215,10 @@ footer {
     background-color: #2E0014;
     width: 30%;
     height: 4px;
-    transition:all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
-.btn:after{
+
+.btn:after {
     content: "";
     position: absolute;
     bottom: -7px;
@@ -223,17 +226,18 @@ footer {
     background-color: #2E0014;
     width: 30%;
     height: 4px;
-    transition:all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
+
 .btn:hover:before,
 .btn:hover:after,
 .btn.active:before,
-.btn.active:after{
+.btn.active:after {
     width: 100%;
 }
 
-@media screen and (max-width: 575px){
-    .btn{
+@media screen and (max-width: 575px) {
+    .btn {
         margin-bottom: 50px !important;
     }
 }
@@ -241,12 +245,12 @@ footer {
 .resultContainer {
     display: flex;
     flex-direction: column;
-margin: auto;
-height: 200px;
-width: 100%;
-background-color: black;
-color: rgb(196, 158, 105);
-margin-bottom: 50px;
+    margin: auto;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    color: rgb(196, 158, 105);
+    margin-bottom: 50px;
 }
 
 .destination {
@@ -264,5 +268,5 @@ margin-bottom: 50px;
 }
 
 .result {
-text-align: center;
+    text-align: center;
 }
