@@ -27,14 +27,8 @@
             <div class="col-sm-3">
                 <a href="#" class="btn btn-lg" id="useLocationBtn">Use current location</a>
             </div>
-            <!--<button id="useLocationBtn"></button>!-->
             <h3 class="or">Or</h3>
-            <input id="addressInput" type="text" placeholder="Enter address">
-            <!--<div class="slider-container">
-                <label for="radiusSlider">Radius:</label>
-                <input type="range" min="1" max="10" value="5" id="radiusSlider">
-                <p id="radiusDisplay">5 miles</p>
-            </div>!-->
+            <input id="autocomplete" type="text" placeholder="Enter address">
         </section>
 
         <div class="map-container">
@@ -48,7 +42,6 @@
             </div>
         </div>
 
-        <!-- Add this section after the map-container div -->
         <!-- <section class="filter-container">
     <h3>Filter by Food Type:</h3>
     <label><input type="checkbox" class="food-filter" value="italian"> Italian</label>
@@ -65,20 +58,20 @@
         </div>
 
         <div class="destination">
-<h1>Your Chosen Dining Destination</h1>
+            <h1>Your Chosen Dining Destination</h1>
         </div>
 
         <div class="resultContainer">
             <div class="result">
-            <h3 id="restaurantName">Restaurant:</h3>
-            <h3 id="restaurantAddress">Address:</h3>
-            <h3 id="priceLevel">Price Level:</h3>
-            <h3 id="rating">Rating:</h3>
-        </div>
+                <h3 id="restaurantName">Restaurant:</h3>
+                <h3 id="restaurantAddress">Address:</h3>
+                <h3 id="priceLevel">Price Level:</h3>
+                <h3 id="rating">Rating:</h3>
+            </div>
         </div>
 
         <footer>
-            <p>&copy; 2023 Forager. All rights reserved.</p>
+            <p class="footer">&copy; 2023 Forager. All rights reserved.</p>
             <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY&libraries=places&callback=initMap"></script>
             <script src="./assets/script.js"></script>
