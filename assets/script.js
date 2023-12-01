@@ -126,7 +126,7 @@ function getLocation() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    initMap();
+    initMap();initAutocomplete();
 });
 
 const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
@@ -143,5 +143,3 @@ function initAutocomplete() {
     console.log('Formatted Address:', address);
   });
 }
-
-google.maps.event.addDomListener(window, 'load', initAutocomplete);
