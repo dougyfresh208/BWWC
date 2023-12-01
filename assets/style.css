@@ -49,7 +49,7 @@ p {
     color: #000000;
 }
 
-.inputcontainer {
+.autocomplete {
     display: flex;
     justify-content: space-around;
     padding-bottom: 30px;
