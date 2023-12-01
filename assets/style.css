@@ -270,3 +270,33 @@ footer {
 .result {
     text-align: center;
 }
+
+.previousDestination {
+    margin-top: 50px;
+    border-bottom: 5px;
+    padding-bottom: 2px;
+    border-color: rgb(196, 158, 105);
+    border-style: dashed;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    background-color: rgb(196, 158, 105);
+    color: black;
+}
+
+
+.previousResultsContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 200px;
+    width: 100%;
+    background-color: rgb(196, 158, 105);
+    color: black;
+    margin-bottom: 50px;
+}
+
+.previousResults{
+    text-align: center;
+}
