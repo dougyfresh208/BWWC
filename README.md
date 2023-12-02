@@ -1,7 +1,7 @@
 # Forager
 
 A website for finding a place to get some take-out near by.
-
+![FORAGER](https://github.com/dougyfresh208/BWWC/assets/146030239/47d4698d-ad09-4631-8ffe-e0d0baf05442)
 ## Description
    This is Project 1 of 3 in the course of our bootcamp. The project we came up with is meant to solve a real world problem is to solve D.D.D.(DoorDash Dependency). 
 
@@ -15,6 +15,7 @@ As a user I want
 To enter a desired distance away from my current location, price, type of food, rating?
 So that 
 The application can give me a result that matches my criteria
+
 
 As a user I want
 To adjust a slider that determines a radius around my current location
@@ -36,12 +37,10 @@ My recent results to be saved to local storage and placed on the page to see my 
 So that
 I can see my past results that I have been given
 ## Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+Click on the "USE CURRENT LOCATION" button or use the address bar to find your address.
+Scroll down to the "GENERATE YOUR DINING DESTINATION" button.
+Scroll farther down to see your dining destination.
+Go to the restaurant and eat or click the "GENERATE YOUR DINING DESTINATION" button again until you find something that peaks your interest.
 
 ## Contributors names and contact info
 
@@ -53,24 +52,3 @@ Github :dougyfresh208
 Github :DillonDuran
 ### Angel Huichapa
 Github :Angel-Huichapa
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)

@@ -14,6 +14,7 @@ input {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    width: auto
 }
 
 header {
@@ -133,8 +134,17 @@ input {
     color: #333
 }
 
+.slider-label {
+    display: inline-block;
+}
+
 .slider {
     transform: rotate(270deg);
+    display: inline-block;
+}
+
+#radiusDisplay {
+    display: flex
 }
 
 
@@ -236,9 +246,10 @@ footer {
     width: 100%;
 }
 
-@media screen and (max-width: 575px) {
-    .btn {
-        margin-bottom: 50px !important;
+
+@media screen and (max-width: 1083px) {
+    #useLocationBtn {
+        width: 250px
     }
 }
 
