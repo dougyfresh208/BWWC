@@ -290,7 +290,7 @@ footer {
     display: flex;
     flex-direction: column;
     margin: auto;
-    height: 200px;
+    height: auto;
     width: 100%;
     background-color: rgb(196, 158, 105);
     color: black;
@@ -299,4 +299,12 @@ footer {
 
 .previousResults{
     text-align: center;
+}
+
+#clearList {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+  margin-bottom: 20px;
 }
