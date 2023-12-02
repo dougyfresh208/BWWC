@@ -29,7 +29,6 @@
             </div>
             <h3 class="or">Or</h3>
             <input id="autocomplete" type="text" placeholder="Enter address">
-
         </section>
 
         <div class="map-container">
@@ -61,7 +60,7 @@
         <div class="destination">
             <h1>Your Chosen Dining Destination</h1>
         </div>
-      
+
         <div class="resultContainer">
             <div class="result">
                 <h3 id="restaurantName">Restaurant:</h3>
@@ -71,7 +70,6 @@
             </div>
         </div>
 
-
         <div class="previousDestination">
             <h1>Going Back?</h1>
         </div>
@@ -79,7 +77,7 @@
         <div class="previousResultsContainer">
             <div class="previousResults">
                 <h3 id="previousRestrant">Previous Restaurant:</h3>
-                <h3 id="previousAddress">Address:</h3>
+                <h3 id="previousAddres">Address:</h3>
                 <h3 id="previousPrice">Price Level:</h3>
                 <h3 id="previousRating">Rating:</h3>
             </div>
@@ -87,9 +85,11 @@
 
         <footer>
             <p class="footer">&copy; 2023 Forager. All rights reserved.</p>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY&libraries=places&callback=initMap"></script>
+            <script src="./assets/script.js"></script>
         </footer>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY&libraries=places&callback=initMap"></script>
-        <script src="./assets/script.js"></script>
+
 </body>
 
 </html>
