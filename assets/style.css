@@ -308,3 +308,23 @@ footer {
     margin: auto;
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 1919px){
+    .slider-container{
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 1137px){
+    #radiusDisplay{
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 1137px){
+    label{
+        
+        padding-bottom: 30%;
+
+    }
+}

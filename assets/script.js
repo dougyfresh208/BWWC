@@ -174,5 +174,6 @@ function clearPreviousRestaurants() {
 document.addEventListener("DOMContentLoaded", function () {
   initMap();
   displayPreviousRestaurants();
+  initAutocomplete();
 });
 
