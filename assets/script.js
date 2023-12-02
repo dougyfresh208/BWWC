@@ -1,7 +1,6 @@
 var circle, map, placesService;
 
 function initMap() {
-
   var mapOptions = {
     center: { lat: 40.377937, lng: -111.803055 },
     zoom: 11,
@@ -35,9 +34,28 @@ function initMap() {
     event.preventDefault();
     generateResult();
   });
+
+  document.getElementById('useLocationBtn').addEventListener('click', function (event) {
+    event.preventDefault();
+    getLocation();
+  });
+
+  document.getElementById('clearList').addEventListener('click', function (event) {
+    event.preventDefault();
+    clearPreviousRestaurants();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initMap();
+    initAutocomplete();
+  });
+  // displayPreviousRestaurants();
 }
 
 function updateResultContainer(place) {
+  // Save the selected place to local storage
+  saveRestaurantToLocalStorage(place);
+
   // Update the corresponding lines in the result container
   document.getElementById('restaurantName').innerText = 'Restaurant: ' + place.name;
   document.getElementById('restaurantAddress').innerText = 'Address: ' + place.vicinity;
@@ -46,7 +64,6 @@ function updateResultContainer(place) {
 }
 
 function generateResult() {
-
   var circleCenter = circle.getCenter();
 
   var request = {
@@ -58,17 +75,11 @@ function generateResult() {
 
   placesService.nearbySearch(request, function (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-      console.log('Number of Restaurants within the Circle:', results.length);
-
       var randomIndex = Math.floor(Math.random() * results.length);
       var selectedPlace = results[randomIndex];
 
-      console.log('Selected Place:', selectedPlace);
 
       updateResultContainer(selectedPlace);
-
-      console.log(`Selected Restaurant: ${selectedPlace.name}`);
     } else {
       console.error('Nearby Search failed. Status:', status);
       alert('Failed to retrieve nearby restaurants. Please check the console for details.');
@@ -77,18 +88,10 @@ function generateResult() {
 }
 
 function updateCircle() {
-
   var sliderValue = document.getElementById("radiusSlider").value;
-
   circle.setRadius(sliderValue * 1609.34);
-
   document.getElementById("radiusDisplay").innerText = sliderValue + " miles";
 }
-
-document.getElementById('useLocationBtn').addEventListener('click', function (event) {
-  event.preventDefault();
-  getLocation();
-});
 
 function getLocation() {
   const apiKey = 'AIzaSyBo_mdO9-w5vxlVtKqgJY3-D--jfXBGYqY';
@@ -120,19 +123,14 @@ function getLocation() {
   })
     .then(response => response.json())
     .then(data => {
-
-      console.log('Location:', data.location);
-
       map.setCenter(data.location);
       circle.setCenter(data.location);
-
       var currentLocationMarker = new google.maps.Marker({
         position: data.location,
         map: map,
         title: "Current Location",
         animation: google.maps.Animation.DROP,
       });
-
       map.panTo(data.location);
     })
     .catch(error => {
@@ -141,8 +139,40 @@ function getLocation() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+function saveRestaurantToLocalStorage(restaurant) {
+  let previousRestaurants = JSON.parse(localStorage.getItem('previousRestaurants')) || [];
+  previousRestaurants.push(restaurant);
+  localStorage.setItem('previousRestaurants', JSON.stringify(previousRestaurants));
 
+  displayPreviousRestaurants();
+}
+
+function displayPreviousRestaurants() {
+  let previousRestaurants = JSON.parse(localStorage.getItem('previousRestaurants')) || [];
+
+  let previousRestaurantsList = document.getElementById('previousRestaurantsList');
+  previousRestaurantsList.innerHTML = '';
+
+  previousRestaurants.forEach(function (restaurant, index) {
+      let restaurantInfo = document.createElement('div');
+      restaurantInfo.innerHTML = `
+          <h3>Restaurant ${index + 1}:</h3>
+          <p>Name: ${restaurant.name}</p>
+          <p>Address: ${restaurant.vicinity}</p>
+      `;
+      previousRestaurantsList.appendChild(restaurantInfo);
+  });
+}
+
+
+
+function clearPreviousRestaurants() {
+  localStorage.removeItem('previousRestaurants');
+  displayPreviousRestaurants();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  displayPreviousRestaurants();
   initMap();initAutocomplete();
 });
 
