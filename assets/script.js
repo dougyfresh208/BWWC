@@ -142,7 +142,9 @@ function getLocation() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
     initMap();initAutocomplete();
+>>>>>>>>> Temporary merge branch 2
 });
 
 const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
