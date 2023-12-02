@@ -322,7 +322,7 @@ footer {
 
 @media screen and (max-width: 1919px){
     .slider-container{
-        width: 10%;
+        width: 10%
     }
 }
 
@@ -337,5 +337,11 @@ footer {
         
         padding-bottom: 30%;
 
+    }
+}
+
+@media screen and (max-width: 609px){
+    .resultContainer{
+        overflow-y: scroll;
     }
 }
