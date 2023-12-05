@@ -175,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
 
 function initAutocomplete() {
+  console.log(initAutocomplete)
   const input = document.getElementById('autocomplete');
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
   console.log(initAutocomplete)
