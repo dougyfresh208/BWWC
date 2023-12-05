@@ -52,3 +52,14 @@ Github :dougyfresh208
 Github :DillonDuran
 ### Angel Huichapa
 Github :Angel-Huichapa
+
+## Links
+
+
+
+### Flow Chart ![lucid app_lucidchart_24cbd5f5-0a68-4d5d-a15b-7d904d861fda_edit_docId=24cbd5f5-0a68-4d5d-a15b-7d904d861fda shared=true invitationId=inv_78d24f23-53e7-49fc-85f8-74a3286eb97e page=0_0](https://github.com/dougyfresh208/BWWC/assets/141958797/d715e457-0914-4c98-9e08-6f339abeaf23)
+
+### Wire Framing ![www figma com_file_I8iandJlb54Lrm6M1oUt32_Untitled_type=design node-id=0-1 mode=design t=8LJM2JSU7KtnTOLp-0](https://github.com/dougyfresh208/BWWC/assets/141958797/5acafb90-d0d6-40f1-bed5-aae6d23b7c08)
+
+
+
