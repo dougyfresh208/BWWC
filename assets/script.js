@@ -47,8 +47,8 @@ function initMap() {
 
   document.addEventListener("DOMContentLoaded", function () {
     initMap();
-    initAutocomplete();
   });
+  initAutocomplete();
 }
 
 function updateResultContainer(place) {
@@ -177,19 +177,19 @@ function initAutocomplete() {
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['address'] });
 
   autocomplete.addListener('place_changed', function () {
-    handlePlaceChanged(autocomplete.getPlace());
+    placeChanged(autocomplete.getPlace());
   });
 
   input.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       event.preventDefault();
 
-      handlePlaceChanged(autocomplete.getPlace());
+      placeChanged(autocomplete.getPlace());
     }
   });
 }
 
-function handlePlaceChanged(place) {
+function placeChanged(place) {
   if (!place.geometry) {
     console.error('Place does not have geometry');
     return;
@@ -199,5 +199,3 @@ function handlePlaceChanged(place) {
   marker.setPosition(place.geometry.location);
   circle.setCenter(place.geometry.location);
 }
-
-
