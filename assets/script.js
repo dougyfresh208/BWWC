@@ -1,4 +1,4 @@
-var circle, map, placesService;
+var circle, map, placesService, marker;
 
 function initMap() {
   var mapOptions = {
@@ -8,10 +8,10 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  var marker = new google.maps.Marker({
+  marker = new google.maps.Marker({
     position: { lat: 40.377937, lng: -111.803055 },
     map: map,
-    title: "Marker Title",
+    title: "Location",
   });
 
   circle = new google.maps.Circle({
@@ -175,22 +175,32 @@ document.addEventListener("DOMContentLoaded", function () {
 const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
 
 function initAutocomplete() {
-  console.log(initAutocomplete)
   const input = document.getElementById('autocomplete');
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['address'] });
-  console.log(initAutocomplete)
 
   autocomplete.addListener('place_changed', function() {
-    console.log('Place changed event triggered');
-      const place = autocomplete.getPlace();
-      if (!place.geometry) {
-          console.error('Place does not have geometry');
-          return;
-      }
+    handlePlaceChanged(autocomplete.getPlace());
+  });
 
-      map.setCenter(place.geometry.location);
-      marker.setPosition(place.geometry.location);
-      circle.setCenter(place.geometry.location);
-      
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+
+      handlePlaceChanged(autocomplete.getPlace());
+    }
   });
 }
+
+function handlePlaceChanged(place) {
+  if (!place.geometry) {
+    console.error('Place does not have geometry');
+    return;
+  }
+
+  // Assuming `map`, `marker`, and `circle` are global variables
+  map.setCenter(place.geometry.location);
+  marker.setPosition(place.geometry.location);
+  circle.setCenter(place.geometry.location);
+}
+
+
