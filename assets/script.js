@@ -49,14 +49,10 @@ function initMap() {
     initMap();
     initAutocomplete();
   });
-  // displayPreviousRestaurants();
 }
 
 function updateResultContainer(place) {
-  // Save the selected place to local storage
   saveRestaurantToLocalStorage(place);
-
-  // Update the corresponding lines in the result container
   document.getElementById('restaurantName').innerText = 'Restaurant: ' + place.name;
   document.getElementById('restaurantAddress').innerText = 'Address: ' + place.vicinity;
   document.getElementById('priceLevel').innerText = 'Price Level: ' + (place.price_level ? place.price_level : 'N/A');
@@ -181,12 +177,19 @@ const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
-  console.log('initAutocomplete')
+  console.log(initAutocomplete)
 
   autocomplete.addListener('place_changed', function() {
-    const place = autocomplete.getPlace();
-    console.log('Place details:', place);
-    const address = place.formatted_address;
-    console.log('Formatted Address:', address);
+    console.log('Place changed event triggered');
+      const place = autocomplete.getPlace();
+      if (!place.geometry) {
+          console.error('Place does not have geometry');
+          return;
+      }
+
+      map.setCenter(place.geometry.location);
+      marker.setPosition(place.geometry.location);
+      circle.setCenter(place.geometry.location);
+      
   });
 }
