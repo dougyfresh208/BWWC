@@ -75,7 +75,9 @@ p {
     border: none;
     cursor: pointer;
     width: 100%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .or {
@@ -265,7 +267,7 @@ footer {
 }
 
 .destination {
-    margin-top: 50px;
+    margin-top: 40px;
     border-bottom: 5px;
     padding-bottom: 2px;
     border-color: rgb(196, 158, 105);
@@ -308,7 +310,7 @@ footer {
     margin-bottom: 50px;
 }
 
-.previousResults{
+.previousResults {
     text-align: center;
 }
 
@@ -317,31 +319,32 @@ footer {
     justify-content: center;
     width: 30%;
     margin: auto;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-@media screen and (max-width: 1919px){
-    .slider-container{
+@media screen and (max-width: 1919px) {
+    .slider-container {
         width: 10%
     }
 }
 
-@media screen and (max-width: 1137px){
-    #radiusDisplay{
+@media screen and (max-width: 1137px) {
+    #radiusDisplay {
         width: 10%;
     }
 }
 
-@media screen and (max-width: 1137px){
-    label{
-        
+@media screen and (max-width: 1137px) {
+    label {
+
         padding-bottom: 30%;
 
     }
 }
 
-@media screen and (max-width: 609px){
-    .resultContainer{
+@media screen and (max-width: 609px) {
+    .resultContainer {
         overflow-y: scroll;
     }
 }

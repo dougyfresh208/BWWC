@@ -150,17 +150,15 @@ function displayPreviousRestaurants() {
   previousRestaurantsList.innerHTML = '';
 
   previousRestaurants.forEach(function (restaurant, index) {
-      let restaurantInfo = document.createElement('div');
-      restaurantInfo.innerHTML = `
+    let restaurantInfo = document.createElement('div');
+    restaurantInfo.innerHTML = `
           <h3>Restaurant ${index + 1}:</h3>
           <p>Name: ${restaurant.name}</p>
           <p>Address: ${restaurant.vicinity}</p>
       `;
-      previousRestaurantsList.appendChild(restaurantInfo);
+    previousRestaurantsList.appendChild(restaurantInfo);
   });
 }
-
-
 
 function clearPreviousRestaurants() {
   localStorage.removeItem('previousRestaurants');
@@ -169,7 +167,7 @@ function clearPreviousRestaurants() {
 
 document.addEventListener("DOMContentLoaded", function () {
   displayPreviousRestaurants();
-  initMap();initAutocomplete();
+  initMap(); initAutocomplete();
 });
 
 const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
@@ -178,11 +176,11 @@ function initAutocomplete() {
   const input = document.getElementById('autocomplete');
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['address'] });
 
-  autocomplete.addListener('place_changed', function() {
+  autocomplete.addListener('place_changed', function () {
     handlePlaceChanged(autocomplete.getPlace());
   });
 
-  input.addEventListener('keydown', function(event) {
+  input.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       event.preventDefault();
 
@@ -197,7 +195,6 @@ function handlePlaceChanged(place) {
     return;
   }
 
-  // Assuming `map`, `marker`, and `circle` are global variables
   map.setCenter(place.geometry.location);
   marker.setPosition(place.geometry.location);
   circle.setCenter(place.geometry.location);
