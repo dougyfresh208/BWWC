@@ -181,7 +181,7 @@ const apiKey = 'AIzaSyBHeBzhIMst_moJaXl-g23xT55gjJ3_LiY';
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
   const autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
-  console.log(initAutocomplete)
+  console.log('initAutocomplete')
 
   autocomplete.addListener('place_changed', function() {
     const place = autocomplete.getPlace();
